@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 // Routes
 import { APP_ROUTES } from './app.routes';
@@ -15,7 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 
 //Temporal
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,10 +27,12 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     APP_ROUTES,
     PagesModule,
     ServiceModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ServiceModule],
   bootstrap: [AppComponent]
