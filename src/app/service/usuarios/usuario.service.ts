@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../../models/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICE } from '../../config/config';
-import { map } from "rxjs/operators";
+import { map, switchMap } from "rxjs/operators";
 import { Router } from '@angular/router';
+import { UploadFileService } from '../upload-file/upload-file.service';
 
 
 @Injectable()
@@ -13,7 +14,8 @@ export class UsuarioService {
   token: string;
 
   constructor( public http: HttpClient,
-    public router: Router ) { 
+    public router: Router,
+    public _uploadFileService: UploadFileService ) { 
     this.getLocalStorageVariable();
   }
 
@@ -45,7 +47,7 @@ export class UsuarioService {
     this.token = '';
     
     localStorage.removeItem('token');
-    localStorage.removeItem('usuario');
+    localStorage.removeItem('usuario');   
 
     this.router.navigate(['/login']);
   }
@@ -85,5 +87,31 @@ export class UsuarioService {
         swal('Usuario creado', usuario.email, 'success');
         return resp.usuario;
       }));
+  }
+
+  updateUser(usuario: Usuario){
+
+    let urlService = URL_SERVICE + '/usuario/' + usuario._id;
+    urlService += '?token=' + this.token;
+
+    return this.http.put(urlService, usuario).pipe(
+      map((resp: any) => {
+        // this.usuario = resp.usuario;
+        this.setStorage(resp.usuario._id, this.token, resp.usuario);
+        swal('Usuario actualizado', usuario.nombre, 'success');
+        return true;
+      }));
+  }
+
+  changeImage(archivo: File, id: string ){
+    this._uploadFileService.uploadFile(archivo, 'usuarios', id )
+      .then((resp: any) => {
+        this.usuario.img = resp.usuario.img;
+        swal('Imagen Actualizada', this.usuario.nombre, 'success');
+        this.setStorage(id, this.token, this.usuario);
+      })
+      .catch(resp => {
+        console.log(resp);
+      });
   }
 }
