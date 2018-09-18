@@ -30,9 +30,7 @@ export class ProfilesComponent implements OnInit {
     }
 
     this._usuarioService.updateUser(this.usuario)
-      .subscribe(resp => {
-        console.log(resp);
-      });
+      .subscribe();
   }
 
   selectImage(archivo: File){

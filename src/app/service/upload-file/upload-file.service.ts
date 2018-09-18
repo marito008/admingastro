@@ -14,7 +14,7 @@ export class UploadFileService {
       let xhr = new XMLHttpRequest();
   
       formData.append('imagen', archivo, archivo.name);
-  
+      
       xhr.onreadystatechange = function(){
         if(xhr.readyState === 4){
           if(xhr.status === 200) {

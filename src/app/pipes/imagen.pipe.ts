@@ -8,13 +8,13 @@ export class ImagenPipe implements PipeTransform {
 
   transform(img: string, tipo: string = 'usuario'): any {
     let urlService = URL_SERVICE + '/img';
+    
+    if (!img){
+        return urlService + '/usuarios/xxxx';
+    }
 
     if(img.indexOf('https')>=0){
       return img;
-    }
-
-    if (!img){
-      return urlService + '/usuarios/xxxx';
     }
 
     switch(tipo){
@@ -28,7 +28,6 @@ export class ImagenPipe implements PipeTransform {
         urlService += '/hospitales/img';
         break;    
       default:
-        console.log('Tipo de usuario no existe');
         urlService += '/medicos/xxxx';
     }
     return urlService;

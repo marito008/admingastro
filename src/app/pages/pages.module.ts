@@ -19,6 +19,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfilesComponent } from './profiles/profiles.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ModalUploadComponent } from "../components/modal-upload/modal-upload.component";
 
 
 
@@ -33,7 +35,9 @@ import { ProfilesComponent } from './profiles/profiles.component';
         AccountSettingsComponent,
         PromesasComponent,
         RxjsComponent,
-        ProfilesComponent
+        ProfilesComponent,
+        UsuariosComponent,
+        ModalUploadComponent
     ],
     exports: [
         DashboardComponent,
