@@ -17,8 +17,8 @@ export class VerifyTokenGuard implements CanActivate {
     let token = this._usuarioService.token;
 
     let payload = JSON.parse(atob(token.split('.')[1]));
-
-    let expired = this.expiredTorken(payload.ext);
+    
+    let expired = this.expiredTorken(payload.exp);
 
     if (expired) {
       this.router.navigate(['/login']);

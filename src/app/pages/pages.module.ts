@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 
-import { PagesComponent } from "./pages.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ProgressComponent } from "./progress/progress.component";
 import { Graficas1Component } from "./graficas1/graficas1.component";
@@ -20,11 +19,13 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
-import { ModalUploadComponent } from "../components/modal-upload/modal-upload.component";
 import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { PacientesComponent } from './pacientes/pacientes.component';
+import { NewPacienteComponent } from './pacientes/new-paciente/new-paciente.component';
+import { EstudiosComponent } from './estudios/estudios/estudios.component';
 
 
 
@@ -45,7 +46,10 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
         HospitalesComponent,
         MedicosComponent,
         MedicoComponent,
-        BusquedaComponent
+        BusquedaComponent,
+        PacientesComponent,
+        NewPacienteComponent,
+        EstudiosComponent
     ],
     exports: [
         DashboardComponent,

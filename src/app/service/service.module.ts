@@ -6,14 +6,16 @@ import { SettingsService,
         SidebarService, 
         UsuarioService, 
         HospitalesService,
+        ObraSocialService,
         AdminGuard,
         LoginGuardGuard, 
         UploadFileService, 
         MedicoService,
+//        EstudiosService,
         VerifyTokenGuard } from './service.index';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
-
+import { PacientesService } from './pacientes/pacientes.service';
 
 @NgModule({
   imports: [
@@ -26,12 +28,15 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     SidebarService,
     UsuarioService,
     HospitalesService,
+    PacientesService,
+    ObraSocialService,
     MedicoService,
     AdminGuard,
     LoginGuardGuard,
     UploadFileService,
     ModalUploadService,
     VerifyTokenGuard
+//    EstudiosService
   ],
   declarations: []
 })

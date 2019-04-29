@@ -13,6 +13,9 @@ import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { PacientesComponent } from './pacientes/pacientes.component';
+import { NewPacienteComponent } from './pacientes/new-paciente/new-paciente.component';
+import { EstudiosComponent } from './estudios/estudios/estudios.component';
 
 
 const pagesRoutes: Routes= [
@@ -20,8 +23,23 @@ const pagesRoutes: Routes= [
     { 
         path: 'dashboard', 
         component: DashboardComponent, 
-        canActivate: [VerifyTokenGuard],
+        // canActivate: [VerifyTokenGuard],
         data: {titulo: "Dashboard"} 
+    },
+    {
+        path: 'pacientes',
+        component: PacientesComponent,
+        data: { titulo: 'Pacientes'}
+    },
+    {
+        path: 'new-paciente/nuevo',
+        component: NewPacienteComponent,
+        data: { titulo: 'Agregar Paciente'}
+    },
+    {
+        path: 'estudio/:id',
+        component: EstudiosComponent,
+        data: { titulo: 'Crear Estudio'}
     },
     { path: 'progress', component: ProgressComponent, data: {titulo: "Progress"}  },
     { path: 'graficas', component: Graficas1Component, data: {titulo: "Graficas"}  },

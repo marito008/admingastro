@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { URL_SERVICE } from '../../config/config';
 import { map } from 'rxjs/operators';
 import { UsuarioService } from '../usuarios/usuario.service';
