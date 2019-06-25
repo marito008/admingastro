@@ -163,7 +163,6 @@ export class UsuarioService {
   }
 
   buscarUsuarios(termino: string) {
-    console.log("Termino: ", termino);
     let urlService = URL_SERVICE + '/busqueda/coleccion/usuarios/' + termino; 
 
     return this.http.get(urlService).pipe(

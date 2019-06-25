@@ -34,9 +34,6 @@ export class NewPacienteComponent implements OnInit {
   }
 
   savePaciente(f: NgForm){
-    console.log(f.valid);
-    console.log(f.value);
-
     if(f.invalid) {
       return;
     }

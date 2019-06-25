@@ -18,10 +18,6 @@ export class IncrementadorComponent implements OnInit {
   }
 
   onChange(newValue: number){
-    
-    // let elemHTML: any = document.getElementsByName('progreso')[0];
-    // console.log(elemHTML.value);
-
     if(newValue >=100) {
       this.progreso = 100;
     } else if (newValue<=0){

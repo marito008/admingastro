@@ -19,10 +19,6 @@ export class ModalUploadComponent implements OnInit {
   ngOnInit() {
   }
 
-  // subirImagen() {
-  //   console.log('Subir Imagen!!');
-  // }
-
   cerrarModal(){
     this.imagenTemp = null;
     this.imageUpload = null;
@@ -53,7 +49,6 @@ export class ModalUploadComponent implements OnInit {
   subirImagen(){
     this._uploadFileService.uploadFile(this.imageUpload, this._modalUploadService.tipo, this._modalUploadService.id)
       .then(resp => {
-        console.log(resp);
         this._modalUploadService.notificacion.emit(resp);
         this.cerrarModal();
       })

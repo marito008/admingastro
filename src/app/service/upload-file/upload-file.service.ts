@@ -13,15 +13,13 @@ export class UploadFileService {
   
       let xhr = new XMLHttpRequest();
   
-      formData.append('imagen', archivo, archivo.name);
+      formData.append('img', archivo, archivo.name);
       
       xhr.onreadystatechange = function(){
         if(xhr.readyState === 4){
           if(xhr.status === 200) {
-            console.log('Imagen subida');
             resolve(JSON.parse(xhr.response));
           } else {
-            console.log('Fallo al subir imagen.');
             reject(xhr.response);
           }
         }

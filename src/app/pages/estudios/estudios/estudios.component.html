@@ -1,57 +1,56 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div  class="card-body">
-                
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="exampleInputuname2">Nombre</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="ti-user"></i>
-                                    </div>
-                                    <input name="nombre" type="text" class="form-control" value="{{paciente.apellido}}, {{paciente.nombre}}" disabled>
-                                    <!-- <input type="text" class="form-control"  value="{{paciente.apellido}}, {{paciente.nombre}}" disabled> -->
+            <div  class="card-body">               
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="exampleInputuname2">Nombre</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="ti-user"></i>
                                 </div>
-                            </div>
-                        </div>                     
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label for="exampleInputuname2">Edad</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="ti-pin"></i>
-                                    </div>
-                                    <input [ngModel]="edad" name="edad" type="text" class="form-control" disabled>
-                                    <!-- <input type="text" class="form-control"  value="{{paciente.apellido}}, {{paciente.nombre}}" disabled> -->
-                                </div>
-                            </div>
-                        </div>                     
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label>Documento</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="ti-id-badge"></i>
-                                    </div>
-                                    <input [(ngModel)]="paciente.dni" name="dni" class="form-control" type="text" disabled>
-                                    <!-- <input type="text" class="form-control"  value="{{paciente.dni}}" disabled> -->
-                                </div>
+                                <input name="nombre" type="text" class="form-control" value="{{paciente.apellido}}, {{paciente.nombre}}" disabled>
+                                <!-- <input type="text" class="form-control"  value="{{paciente.apellido}}, {{paciente.nombre}}" disabled> -->
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Obra Social</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="ti-credit-card"></i>
-                                    </div>
-                                    <input [(ngModel)]="paciente.obraSocial.nombre" name="obrasocial" class="form-control" type="text" disabled>
+                    </div>                     
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="exampleInputuname2">Edad</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="ti-pin"></i>
                                 </div>
+                                <input [ngModel]="edad" name="edad" type="text" class="form-control" disabled>
+                                <!-- <input type="text" class="form-control"  value="{{paciente.apellido}}, {{paciente.nombre}}" disabled> -->
                             </div>
-                        </div>                         
+                        </div>
+                    </div>                     
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Documento</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="ti-id-badge"></i>
+                                </div>
+                                <input [(ngModel)]="paciente.dni" name="dni" class="form-control" type="text" disabled>
+                                <!-- <input type="text" class="form-control"  value="{{paciente.dni}}" disabled> -->
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Obra Social</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="ti-credit-card"></i>
+                                </div>
+                                <input [(ngModel)]="os" name="obraSocial" class="form-control" type="text" disabled>
+                            </div>
+                        </div>
+                    </div>                         
+                </div>
                 <form ngNativeValidate #f="ngForm" (ngSubmit)="saveEstudio(f)" class="form p-t-20">
                     <!-- <div class="row">    
                         <div class="col-sm-4">
@@ -71,27 +70,41 @@
                         </div>                                                                
                     </div> -->
                     <!--/span-->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label">Tipo de Estudio</label>
-                            <div class="form-check">
-                                <label class="custom-control custom-radio">
-                                    <input id="studyType" name="studyType" type="radio" checked class="custom-control-input">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">VCC</span>
-                                </label>
-                                <label class="custom-control custom-radio">
-                                    <input id="studyType2" name="studyType" type="radio" class="custom-control-input">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">VEDA</span>
-                                </label>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <label class="control-label">Tipo de Estudio</label>
+                                <div class="form-check">
+                                    <label class="custom-control custom-radio">
+                                        <input id="studyType" name="studyType" type="radio" value="VCC" [(ngModel)]="estudio.tipo" checked class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">VCC</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input id="studyType2" name="studyType" type="radio" value="VEDA" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">VEDA</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Motivo del estudio:</label>
+                                    <select  name="motivo" class="form-control custom-select" required>
+                                        <option value="">Seleccionar... </option>
+                                        <option *ngFor="let motivo of vccMotivos" [value]="motivo.id">
+                                            {{motivo.motivo}}
+                                        </option>
+                                    </select>
+                                </div>            
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 ">
                         <div class="form-group">
                             <label>Asistente</label>
-                            <input [(ngModel)]="estudio.asistente" name="asistente" class="form-control" placeholder="Nombre del asistente" type="text" required >
+                            <input [(ngModel)]="estudio.asistente" name="asistente" class="form-control" placeholder="Nombre del asistente" type="text">
                         </div>
                     </div>
                     <div class="row">
@@ -105,6 +118,9 @@
                             <i class="fa fa-save"></i>
                             Guardar
                         </button>
+                        <a routerLink="/pacientes" class="btn btn-inverse waves-effect waves-light">
+                            Cancelar
+                        </a>
                     </div>
                 </form>  
             </div>

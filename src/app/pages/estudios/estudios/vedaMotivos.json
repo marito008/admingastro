@@ -1,0 +1,14 @@
+{
+    "vedaMotivos": [{
+        "id": 1,
+        "motivo": "Motivo 1"
+    },
+    {
+        "id": 2,
+        "motivo": "Motivo 2"
+    },
+    {
+        "id": 3,
+        "motivo": "Motivo 3"
+    }]
+}

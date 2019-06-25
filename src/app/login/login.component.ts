@@ -59,7 +59,6 @@ export class LoginComponent implements OnInit {
     }
 
     let usuario = new Usuario(null, fLogin.value.email, fLogin.value.password);
-    console.log('Ingresar');
     this._usuarioServive.login(usuario, fLogin.value.remindme)
       .subscribe(loginOk => this.router.navigate(['/dashboard']));
     // this.router.navigate([ '/dashboard'])

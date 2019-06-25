@@ -18,8 +18,12 @@ export class EstudiosComponent implements OnInit {
   asistente: string = '';
   description: string;
   edad: number;
-  estudio: Estudio = new Estudio('', '', null, null, '', '', null, null);
- 
+  os: String;
+  estudio: Estudio = new Estudio();
+  vccMotivos: any [] = [{"id": 1, "motivo": "Motivo 1"},
+                       {"id": 2, "motivo": "Motivo 2"},
+                       {"id": 3, "motivo": "Motivo 3"}];
+
   constructor(
     public _pacienteService: PacientesService,
     public activatedRoute: ActivatedRoute,
@@ -36,15 +40,15 @@ export class EstudiosComponent implements OnInit {
   }
   
   ngOnInit() {
-
+    
   }
   
   cargarPaciente(id: string) {
     this._pacienteService.cargarPaciente(id)
     .subscribe(paciente => {
       this.paciente = paciente;
+      this.os = paciente.obraSocial.nombre;
       console.log("paciente: ", this.paciente);
-      // console.log("paciente: ", fecha.getDay());
       this.edad = this.obtenerEdad(this.paciente.fechaNac);
 
       });
@@ -52,19 +56,15 @@ export class EstudiosComponent implements OnInit {
   }
 
   saveEstudio(f: NgForm){
-    // debugger;
-    console.log(f.valid);
-    console.log(f.value);
-
     if(f.invalid) {
       return;
     }
-
-    // this._pacienteService.savePaciente(this.paciente)
-    //   .subscribe(paciente => {
-    //     this.paciente._id = paciente._id;
-    //     this.router.navigate(['/paciente', paciente._id]);
-    //   });
+    console.log('Estudio', this.estudio);
+    this._pacienteService.savePaciente(this.paciente)
+      .subscribe(paciente => {
+        this.paciente._id = paciente._id;
+        this.router.navigate(['/paciente', paciente._id]);
+      });
   }  
 
   obtenerEdad(a: Date){

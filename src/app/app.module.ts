@@ -5,8 +5,6 @@ import {HttpClientModule} from '@angular/common/http';
 // Routes
 import { APP_ROUTES } from './app.routes';
 
-// Modules
-import { PagesModule } from './pages/pages.module';
 //Servicios
 import { ServiceModule } from './service/service.module';
 

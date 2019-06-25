@@ -35,7 +35,6 @@ export class UsuariosComponent implements OnInit {
     this.loading = true;
     this._usuarioService.cargarUsuarios(this.desde)
       .subscribe((resp: any)=> {
-        console.log(resp);
         this.usuarios = resp.usuarios;
         this.totalRegistros = resp.total;
         this.loading = false;
@@ -64,7 +63,6 @@ export class UsuariosComponent implements OnInit {
     this.loading = true;
     this._usuarioService.buscarUsuarios(termino)
       .subscribe((usuarios: Usuario[])=> {
-        console.log(usuarios);
         this.usuarios = usuarios;
         this.loading = false;
       });
